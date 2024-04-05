@@ -1,6 +1,8 @@
 package firstPalindrome
 
-import "unicode"
+import (
+	"unicode"
+)
 
 func isFirstPalindrome(words []string) string {
 
