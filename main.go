@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	text := "abc"
+	text := "aba"
 	result := practice.IsPalindrome(text)
 	fmt.Println(result)
 }

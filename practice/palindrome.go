@@ -25,8 +25,7 @@ func IsPalindrome(text string) bool {
 	return true
 }
 
-func isAlphaNum(character byte) bool {
-	ch := character
+func isAlphaNum(ch byte) bool {
 	return (ch >= 'a' && ch <= 'z') ||
 		(ch >= 'A' && ch <= 'Z') ||
 		(ch >= '0' && ch <= '9')

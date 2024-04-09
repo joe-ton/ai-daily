@@ -7,8 +7,8 @@ func Test_isPalindrome(t *testing.T) {
 		text   string
 		isTrue bool // result
 	}{
-		{"abc", true},
-		{"abcc", false},
+		{"aba", true},
+		{"abc", false},
 		{"121", true},
 	}
 	for _, test := range tests {
