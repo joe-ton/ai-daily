@@ -2,30 +2,41 @@ package main
 
 import "fmt"
 
-<<<<<<< HEAD
 func main() {
+	integers := []int{2, 7, 11, 15}
+	target := 9
+	result := getTwoSum(target, integers)
+	fmt.Println("Indices:", result)
 }
 
-func getTwoSum(target int, integers []int) []int {
-    numMap := make(map[int]int)
-=======
-func TwoSum(nums []int, target int) []int {
-	hashMap := make(map[int]int)
+/*
+Find two integers from slice to add up to targeted sum.
 
-	for idx, num := range nums { // Corrected loop variable names
+Parameters:
+- target int: total sum needed to add up to
+- integers []int: integers given
+
+Returns:
+- []int: empty or 2 slices of indices whose values add to targeted sum
+
+Tradeoff Complexities:
+1. Brute Force: Time O(n^2), Space O(1)
+-> 2. HashMap: Time O(n), Space O(n)
+3. Sorted / 2 pointer: Time O(nlogn), Space O(n) or O(1)
+*/
+func getTwoSum(target int, integers []int) []int {
+	numMap := make(map[int]int) // complement counter
+
+	for i, num in range integers {
 		complement := target - num
-		if index, ok := hashMap[complement]; ok {
-			return []int{index, idx} // Corrected the order of indices in the return statement
+		if compIndex, found := numMap[complement]; found {
+			return []int{compIndex, i}
 		}
-		hashMap[num] = idx
+		numMap[num] = i
 	}
 	return []int{}
 }
 
-func main() {
-	nums := []int{2, 7, 11, 15}
-	target := 9
-	res := TwoSum(nums, target)
-	fmt.Println(res) // Output: [0, 1]
->>>>>>> 3ad8269796a151c3a9ebc2505cac760ba15aca3d
-}
+
+
+
