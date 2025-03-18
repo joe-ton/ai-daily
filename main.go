@@ -29,6 +29,7 @@ func getTwoSum(target int, integers []int) []int {
 
 	for i, num in range integers {
 		complement := target - num
+		// found { } is called a comma-ok idiom, generates a boolean
 		if compIndex, found := numMap[complement]; found {
 			return []int{compIndex, i}
 		}
