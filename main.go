@@ -1,27 +1,25 @@
 package main
 
-import (
-	"fmt"
-)
-
-/*
-Find two integers from slice to add to sum of target.
-
-Parameters:
-- 
-*/
-func twoSum(integers []int, target int) []int {
-	numMap := make(map[int]int)
-	for i, num := range integers {
-		complement := target - num
-		indexCompl, found := numMap[complement]; found {
-			[]int{num, indexCompl}
-		}
-	}
-}
+import "fmt"
 
 func main() {
-	integers := []int{2, 7, 11, 15}
-	result := twoSum(integers, 9)
-	fmt.Println(result)
+    target := 5
+    integers := []int{1, 2, 3, 4}
+    result := twoSum(integers, target)
+    fmt.Println("Result:", result)
+}
+
+/*
+*/
+func twoSum(integers []int, target int) []int {
+    complCount := make(map[int]int)
+
+    for i, num := range integers {
+        complement := target - num
+        if complIndex, found := complCount[complement]; found {
+            return []int{i, complIndex}
+        }
+        complement[Index]
+    }
+    complement[indx]
 }
