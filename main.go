@@ -2,11 +2,16 @@ package main
 
 import (
     "fmt"
-    "net/http"
 )
 
+type twoSumData struct {
+    Integers []int `json:"integers"`
+    Target int `json:"target"`
+}
+
 func main() {
-    resp, err := http.Get("http://www.google.com")
-    fmt.Println("Resp:", resp)
-    fmt.Println("Err:", err)
+    input := twoSumData{
+        Integers: []int{1, 2, 3, 4},
+        Target: 9,
+    }
 }
