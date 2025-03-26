@@ -1,37 +1,35 @@
-
 package main
 
 import (
     "fmt"
+    "errors"
 )
 
-type TwoSumInput struct {
-    Integers []int `json:"integers"`
-    Target int `json:"target"`
+type TwoSumSolver interface {
+    TwoSum(nums []int, target int) ([]int, error)
+}
+
+type MapSolver struct {}
+
+func (m MapSolver) TwoSum(nums []int, target int) ([]int, error) {
+    seen := make(map[int]int)
+
+    for i, num := range nums {
+        complement := target - num
+        if compIdx, found := seen[complement]; found {
+            return []int{compIdx, i}, nil
+        }
+        seen[num] = i
+    }
+    return nil, errors.New("Invalid Indices")
 }
 
 func main() {
-    input := TwoSumInput {
-        Integers: []int{1, 2, 3, 4},
-        Target: 7,
+    solver := MapSolver{}
+    resp, err := solver.TwoSum([]int{1, 2, 3, 4}, 7)
+
+    if err != nil {
+        println("Error:", err.Error())
     }
-    i, j, ok := twoSum(input)
-    if ok {
-        fmt.Printf("Indices: %d and %d\n", i, j)
-    } else {
-        fmt.Println("Invalid Indices")
-    }
+    fmt.Println("Response:", resp)
 }
-
-func twoSum(input TwoSumInput) (int, int, bool) {
-    compMap := make(map[int]int)
-
-    for i, num := range input.Integers {
-        complement := input.Target - num
-        if compIndex, ok := compMap[complement]; ok {
-            return compIndex, i, true
-        }
-        compMap[num] = i
-    }
-    return 0, 0, false
-} 
