@@ -2,16 +2,25 @@ package main
 
 import (
     "testing"
-    "reflect"
 )
 
 func TestMapSolver_TwoSum(t *testing.T) {
-    solver := MapSolver {}
+    solver := MapSolver{}
 
     tests := []struct {
-        name string
+        Name string
         nums []int
         target int
-        
+        want ([]int, error)
+    } {
+        {
+
+        },
+    }
+
+    for tt := range tests {
+        t.Run(t.Name, func(t *testing.T) {
+
+        })
     }
 }

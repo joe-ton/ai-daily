@@ -16,20 +16,24 @@ func (m MapSolver) TwoSum(nums []int, target int) ([]int, error) {
 
     for i, num := range nums {
         complement := target - num
+
         if compIdx, found := seen[complement]; found {
             return []int{compIdx, i}, nil
         }
         seen[num] = i
     }
-    return nil, errors.New("Invalid Indices")
+    return nil, errors.New("Wrong Indices")
 }
 
 func main() {
     solver := MapSolver{}
-    resp, err := solver.TwoSum([]int{1, 2, 3, 4}, 7)
 
+    resp, err := solver.TwoSum([]int{1, 2, 3, 4}, 7)
     if err != nil {
-        println("Error:", err.Error())
+        fmt.Println("Error:", err.Error())
+    } else {
+        fmt.Println("Indices:", resp)
     }
-    fmt.Println("Response:", resp)
+
 }
+
