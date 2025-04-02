@@ -1,22 +1,24 @@
 package main
 
 import (
-    "errors"
     "fmt"
+    "errors"
 )
 
-type TwoSumSolver interface {
-    TwoSum(nums []int, target int) ([]int, int)
+type TwoSumer interface {
+    TwoSum(nums []int, target int) ([]int, error)
 }
 
 type MapSolver struct {}
 
-func TwoSum(nums []int, target int) ([]int, int) {
+func (m MapSolver) TwoSum(nums []int, target int) ([]int, error) {
     seen := make(map[int]int)
 
     for i, num := range nums {
         complement := target - num
-
-        if 
+        
+        if ta
     }
 }
+
+
