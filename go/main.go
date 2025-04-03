@@ -5,11 +5,11 @@ import (
     "errors"
 )
 
-type MapSolver struct {}
-
-type TwoSumInterface interface {
+type TwoSumSolver interface {
     TwoSum(nums []int, target int) ([]int, error)
 }
+
+type MapSolver struct {}
 
 func (m MapSolver) TwoSum(nums []int, target int) ([]int, error) {
     seen := make(map[int]int)
@@ -22,19 +22,14 @@ func (m MapSolver) TwoSum(nums []int, target int) ([]int, error) {
         }
         seen[num] = i
     }
-    return nil, errors.New("Invalid Number")
+    return nil, errors.New("Invalid Indices")
 }
 
 func main() {
-    solver := TwoSumInterface(MapSolver{})
-    nums := []int{1, 2, 3, 4}
-    target := 7
-
-    resp, err := solver.TwoSum(nums, target)
+    solver := MapSolver {}
+    resp, err := solver.TwoSum([]int{1, 2, 3, 4}, 7)
     if err != nil {
         fmt.Println("Error:", err)
-        return
     }
-
     fmt.Println("Response:", resp)
 }

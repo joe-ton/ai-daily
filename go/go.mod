@@ -1,3 +1,3 @@
-module github.com/joe-ton/goLC
+module github.com/joe-ton/ai-daily
 
-go 1.24.1
+go 1.22.2
