@@ -1,5 +1,4 @@
 
-
 from dataclasses import dataclass
 
 @dataclass
@@ -9,27 +8,25 @@ class TwoSumInput:
 
 @dataclass
 class TwoSumResult:
-    indices: tuple[int, int] | None
+    indices: list[int] | None
 
-def two_sum(data: TwoSumInput) -> TwoSumResult:
+def two_sum(data: TwoSumInput) -> TwoSumResult: 
     seen = {}
 
     for idx, num in enumerate(data.nums):
-        complement = data.target - num
+        complement = TwoSumInput.target - num
         if complement in seen:
-            compIdx = seen[complement]
+            compIdx = seen[num]
             indices = (compIdx, idx)
-            return TwoSumResult(indices)
+            return TwoSumResult(indices=indices)
         seen[num] = idx
-
     return TwoSumResult(indices=None)
 
 def main():
-    nums = [1, 2, 3, 4]
-    target = 7
-    data = TwoSumInput(nums=nums, target=target)
-    result = two_sum(data)
-    print(result)
+    nums: list[int] = [1, 2, 3, 4]
+    target: int = 7
+    res = two_sum(TwoSumInput=(nums=nums, target=target))
+    print(res) 
 
 if __name__ == "__main__":
     main()
