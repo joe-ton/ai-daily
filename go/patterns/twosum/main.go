@@ -1,8 +1,19 @@
 package main
 
 import (
-    "errors"
     "fmt"
+    "errors"
+    "log"
+    "time"
+
+    "github.com/prometheus/client_golang/prometheus"
+    "github.com/prometheus/client_golang/prometheus/promhttp"
+)
+
+var (
+    twoSumCalls = prometheus.NewCounter(
+
+    )
 )
 
 type TwoSumSolver interface {
@@ -13,34 +24,32 @@ type MapSolver struct {}
 
 
 func (m MapSolver) TwoSum(nums []int, target int) ([]int, error) {
+    log.Printf("TwoSum called with num=%v and target=%d", nums, target)
     if len(nums) < 2 {
-        return nil, errors.New("Invalid number of values")
-    }
-    if target < 0 {
-        return nil, errors.New("Invalid target sum")
+        err := errors.New("Invalid Nums: not enough values in nums")
+
+        log.Println("Error:", err)
+        return nil, err
     }
 
-    seen := make(map[int]int)
+
+    seen := make(map[int]int) // num -> idx lookup
 
     for idx, num := range nums {
-        complement := target - num
+        complement := target - num 
         if compIdx, found := seen[complement]; found {
             return []int{compIdx, idx}, nil
         }
         seen[num] = idx
     }
-    return nil, errors.New("Invalid Indices")
+    return nil, errors.New("Invalid indices")
 }
 
 func main() {
-    nums := []int{1, 2, 3, 4}
-    target := 7
-
     solver := MapSolver {}
-    resp, err := solver.TwoSum(nums, target)
+    resp, err := solver.TwoSum([]int{1, 2, 3, 4}, 7)
     if err != nil {
-        fmt.Println("Error:", err)
-        return
+        fmt.Println("Error:", err.Error())
     }
     fmt.Println("Response:", resp)
 }
