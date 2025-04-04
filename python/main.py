@@ -1,26 +1,18 @@
 
-def get_two_sum(nums: list, target: int) -> list: 
-    seen: dict = {} # int to int
-    
-    for idx, num in enumerate(nums):
-        complement = target - num
-        print()
+# 3.9+ idiomatic
+from typing import Optional
 
-        if complement in seen:
-            compIdx = seen[complement]
-            return [compIdx, idx]
-        seen[num] = idx
+def get_two_sum(nums: List[int], target: int) -> Optional[List[int]]:
 
-    return []
 
 def main():
-    nums: list = [1, 2, 3, 4]
+    nums: List[int] = [1, 2, 3, 4]
     target: int = 7
 
-    resp: list = get_two_sum(nums, target)
-    print(resp)
-    if resp is None:
-        print(f"Error:{resp}")
-    print(f"Response:{resp}")
+    resp: Optional[List[int]] = get_two_sum(nums, target)
 
-main()
+
+
+if __name__ == "__main__":
+    main()
+
