@@ -2,19 +2,22 @@ package main
 
 import (
     "log"
+    "errors"
     "net/http"
 )
 
-
-
-func resourceHandler(w http.ResponseWriter, r *http.Request) {
+func generalHandle(w http.ResponseWriter, r *http.Request) {
     switch r.Method {
-
+    case http.MethodPost:
+        w.Write([]byte("POST"))
+    case http.MethodGet:
+        w.Write([]byte("READ"))
+    default:
+        http.Error(w, "Not method", http.StatusMethodNotAllowed)
     }
-
 }
 
 func main() {
-    // register main route
-    http.HandleFunc("/api/resource", resourceHandler)
+    http.HandleFunc("/api/resource", generalHandle)
+
 }
