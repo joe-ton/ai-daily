@@ -1,6 +1,6 @@
 # AI Stack Daily Practice
 
-Daily structured practice across **C++, Rust, Go, Python, TypeScript, and Mojo**, designed to craft expertise in architecting end-to-end AI solutions—connecting hardware performance, secure infrastructure, sophisticated modeling, and intuitive user experiences.
+Daily structured practice and projects across **C++, Rust, Go, Python, TypeScript, and Mojo**, designed to craft expertise in architecting end-to-end AI solutions—connecting hardware performance, secure infrastructure, sophisticated modeling, and intuitive user experiences.
 
 ## Why Master This AI Stack?
 
