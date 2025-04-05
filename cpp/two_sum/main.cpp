@@ -1,5 +1,5 @@
 #include <iostream>
-#include <vector> 
+#include <vector>
 #include <unordered_map>
 
 using namespace std;
@@ -10,8 +10,7 @@ pair<int, int> twoSum(const vector<int>& nums, int target) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
         if (seen.count(complement)) {
-
-
+            return {seen[complement], i};
+        }
     }
 }
-
