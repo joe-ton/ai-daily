@@ -5,38 +5,32 @@ import (
     "errors"
 )
 
-type TwoSumSolver interface {
-    TwoSum() ([]int, error)
-}
-
-type TwoSumData struct {
-    Nums []int
-    Target int
-}
-
-func (d TwoSumData) TwoSumSolver() ([]int, error) {
-    if len(d.Nums) < 2 {
-        err := errors.New("Not enough values in the Nums")
-        return nil, err
+func TwoSum(nums []int, target int) ([]int, error) {
+    if len(nums) < 2 {
+        return nil, errors.New("Not enough content in nums")
     }
 
     seen := make(map[int]int)
 
-    for idx, num := range d.Nums {
-        complement := d.Target - num
+    for idx, num := range nums {
+        complement := target - num
         if compIdx, found := seen[complement]; found {
             return []int{compIdx, idx}, nil
         }
         seen[num] = idx
     }
     return nil, errors.New("Invalid Indices")
+
 }
 
 func main() {
-    data := TwoSumData{Nums: []int{1, 2, 3, 4}, Target: 7}
-    resp, err := data.TwoSumSolver()
+    nums := []int{1, 2, 3, 4}
+    target := 7
+
+    resp, err := TwoSum(nums, target)
     if err != nil {
         fmt.Println("Error:", err.Error())
-    } 
+    }
     fmt.Println("Response:", resp)
+
 }

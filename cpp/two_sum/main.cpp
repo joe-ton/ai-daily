@@ -1,14 +1,17 @@
 #include <iostream>
-#include <vector>
+#include <vector> 
 #include <unordered_map>
-#include <span>
 
 using namespace std;
 
-pair<int, int> twoSum(span<int> nums, int target) {
+pair<int, int> twoSum(const vector<int>& nums, int target) {
     unordered_map<int, int> seen;
 
     for (int i = 0; i < nums.size(); ++i) {
+        int complement = target - nums[i];
+        if (seen.count(complement)) {
+
 
     }
 }
+

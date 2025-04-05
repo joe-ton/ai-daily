@@ -1,8 +1,8 @@
 package main
 
 import (
-    "testing"
     "errors"
+    "testing"
 )
 
 func TestTwoSum(t *testing.T) {
@@ -10,20 +10,21 @@ func TestTwoSum(t *testing.T) {
         name string
         nums []int
         target int
-        wantErrors error
+        wantErr error
         wantResp []int
     } {
         {
-            name: "Test1",
+            name: "Correct Test",
             nums: []int{1, 2, 3, 4},
             target: 7,
-            wantErrors: nil,
+            wantErr: nil,
             wantResp: []int{2, 3},
         },
     }
     for _, tt := range tests {
         t.Run(tt.name, func(t *testing.T) {
-
+            gotResp, gotErr := TwoSum(tt.nums, tt.target)
         })
     }
+
 }
