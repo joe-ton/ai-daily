@@ -24,8 +24,12 @@ func TestTwoSum(t *testing.T) {
 
     for _, tt := range tests {
         t.Run(tt.name, func(t *testing.T) {
-            req := TwoSumRequest{nums: []int{1, 2, 3, 4}, target: 7}
-            gotResp, gotErr := req.TwoSum()
+            req := TwoSumRequest{nums: []int{}}
+            gotResp, gotErr := req.TwoSumRequest()
+
+
+
+            
         })
     }
 }
