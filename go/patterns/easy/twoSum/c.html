@@ -76,36 +76,42 @@ import (
     "errors"
 )
 
-type TwoSumData struct {
+type TwoSumInput struct {
     Nums []int
     Target int
 }
 
-func TwoSum(data TwoSumData) ([]int, error) <span class="cov8" title="1">{
-    if len(data.Nums) &lt; 2 </span><span class="cov0" title="0">{
+// Find two indices based on target found from Nums
+func TwoSum(input TwoSumInput) ([]int, error) <span class="cov8" title="1">{
+    if len(input.Nums) &lt; 2 </span><span class="cov0" title="0">{
         return nil, errors.New("Invalid count")
     }</span>
+    <span class="cov8" title="1">if input.Target &lt; 0 </span><span class="cov0" title="0">{
+        return nil, errors.New("Invalid target")
+    }</span>
+
     <span class="cov8" title="1">seen := make(map[int]int)
 
-    for idx, num := range data.Nums </span><span class="cov8" title="1">{
-        complement := data.Target - num
+    for idx, num := range input.Nums </span><span class="cov8" title="1">{
+        complement := input.Target - num
         if compIdx, found := seen[complement]; found </span><span class="cov8" title="1">{
-            return []int{compIdx, idx}, nil // early return
+            return []int{compIdx, idx}, nil
         }</span>
-        <span class="cov8" title="1">seen[num] = idx</span> // tracker
+        <span class="cov8" title="1">seen[num] = idx</span>
     }
-    <span class="cov0" title="0">return nil, errors.New("Invalid indices")</span> // fallback
+    <span class="cov0" title="0">return nil, errors.New("Invalid Indices")</span>
 }
 
 func main() <span class="cov0" title="0">{
-    data := TwoSumData{Nums: []int{1, 2, 3, 4}, Target: 7}
-    resp, err := TwoSum(data)
+    input := TwoSumInput{Nums: []int{1, 2, 3, 4}, Target: 7}
+    resp, err := TwoSum(input)
     if err != nil </span><span class="cov0" title="0">{
         fmt.Println("Error:", err.Error())
     }</span> else<span class="cov0" title="0"> {
-        fmt.Println("Response:", resp)
+        fmt.Println("Resp:", resp)
     }</span>
 }
+
 
 </pre>
 		

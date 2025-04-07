@@ -10,20 +10,25 @@ type TwoSumInput struct {
     Target int
 }
 
+// Find two indices based on target found from Nums
 func TwoSum(input TwoSumInput) ([]int, error) {
     if len(input.Nums) < 2 {
         return nil, errors.New("Invalid count")
     }
-    seen := make(map[int]int) 
+    if input.Target < 0 {
+        return nil, errors.New("Invalid target")
+    }
+
+    seen := make(map[int]int)
 
     for idx, num := range input.Nums {
         complement := input.Target - num
         if compIdx, found := seen[complement]; found {
-            return []int{compIdx, idx}, nil // early 
+            return []int{compIdx, idx}, nil
         }
-        seen[num] = idx // tracker
+        seen[num] = idx
     }
-    return nil, errors.New("Invalid indices")
+    return nil, errors.New("Invalid Indices")
 }
 
 func main() {
@@ -32,7 +37,8 @@ func main() {
     if err != nil {
         fmt.Println("Error:", err.Error())
     } else {
-        fmt.Println("Response:", resp)
+        fmt.Println("Resp:", resp)
     }
-
 }
+
+
