@@ -21,6 +21,13 @@ func TestTwoSum(t *testing.T) {
             wantResp: []int{2, 3},
             wantErr: nil,
         },
+        {
+            name: "Guard clause - too few elements",
+            nums: []int{5},
+            target: 10,
+            wantResp: nil,
+            wantErr: errors.New("Invalid indices"),
+        },
     }
 
     for _, tt := range tests {
