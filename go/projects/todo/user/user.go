@@ -3,19 +3,17 @@ package user
 import (
 	"bufio"
 	"fmt"
-	"os"
 )
 
-type UserInput struct {
+type User struct {
 	FirstName string
 	LastName  string
 	Id        int
 }
 
-func AskUserInfo() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("First Name: ")
-	firstName, _ := reader.ReadString('\n')
+func AskUser() {
+	reader := bufio.NewReader()
 
-	fmt.Println("Confirmed:", firstName)
+	fmt.Println("First Name: ")
+
 }
