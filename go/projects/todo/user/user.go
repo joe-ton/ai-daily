@@ -1,8 +1,12 @@
+// user/user.go
+
 package user
 
 import (
 	"bufio"
+	"errors"
 	"fmt"
+	"os"
 )
 
 type User struct {
@@ -11,9 +15,24 @@ type User struct {
 	Id        int
 }
 
-func AskUser() {
-	reader := bufio.NewReader()
+func (u User) UserAsk() (*User, error) {
+	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Println("First Name: ")
+	fmt.Print("First Name: ")
+	firstName, err := reader.ReadString('\n')
+	if err != nil {
+		return nil, errors.New("No First Name")
+	}
 
+	fmt.Print("Last Name: ")
+	lastName, err := reader.ReadString('\n')
+	if err != nil {
+		return nil, errors.New("No Last Name")
+	}
+
+	return &User{
+		FirstName: firstName,
+		LastName:  lastName,
+		Id:        1,
+	}, nil
 }
