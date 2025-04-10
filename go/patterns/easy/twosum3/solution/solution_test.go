@@ -1,3 +1,5 @@
+// solution_test.go
+
 package solution
 
 import (
@@ -21,17 +23,34 @@ func TestTwoSumFind(t *testing.T) {
 			wantResp: []int{2, 3},
 			wantErr:  nil,
 		},
+		{
+			name:     "TestGuardClauseTwoFewNums",
+			nums:     []int{1},
+			target:   7,
+			wantResp: nil,
+			wantErr:  errors.New("Invalid count of nums"),
+		},
+		{
+			name:     "TestInvalidIndices",
+			nums:     []int{1, 2, 3, 4},
+			target:   8,
+			wantResp: nil,
+			wantErr:  errors.New("Invalid indices"),
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			s := TwoSumSolver{Nums: tt.nums, Target: tt.target}
+			s := TwoSumSolver{
+				Nums:   tt.nums,
+				Target: tt.target,
+			}
 			gotResp, gotErr := s.Solve()
 			if !errors.Is(gotErr, tt.wantErr) {
-				t.Errorf("Got %v Want %v", gotErr, tt.wantErr)
+				t.Errorf("\nGot:  %v\nWant: %v\n", gotErr, tt.wantErr)
 			}
 			if !reflect.DeepEqual(gotResp, tt.wantResp) {
-				t.Errorf("Got %v Want %v", gotResp, tt.wantResp)
+				t.Errorf("\nGot:  %v\nWant: %v\n", gotResp, tt.wantResp)
 			}
 
 		})
