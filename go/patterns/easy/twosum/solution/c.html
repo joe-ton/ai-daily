@@ -3,7 +3,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-		<title>ai-daily: Go Coverage Report</title>
+		<title>solution: Go Coverage Report</title>
 		<style>
 			body {
 				background: black;
@@ -55,7 +55,7 @@
 			<div id="nav">
 				<select id="files">
 				
-				<option value="file0">github.com/joe-ton/ai-daily/main.go (50.0%)</option>
+				<option value="file0">github.com/joe-ton/solution/solution.go (77.8%)</option>
 				
 				</select>
 			</div>
@@ -69,44 +69,32 @@
 		</div>
 		<div id="content">
 		
-		<pre class="file" id="file0" style="display: none">package main
+		<pre class="file" id="file0" style="display: none">package solution
 
-import (
-    "fmt"
-    "errors"
-)
+import "errors"
 
 type TwoSumInput struct {
-    Nums []int
-    Target int
+        Nums   []int
+        Target int
 }
 
-func TwoSum(input TwoSumInput) ([]int, error) <span class="cov8" title="1">{
-    if len(input.Nums) &lt; 2 </span><span class="cov0" title="0">{
-        return nil, errors.New("Invalid count")
-    }</span>
-    <span class="cov8" title="1">lookup := make(map[int]int)
-
-    for idx, num := range input.Nums </span><span class="cov8" title="1">{
-        complement := input.Target - num
-        if compIdx, found := lookup[complement]; found </span><span class="cov8" title="1">{
-            return []int{compIdx, idx}, nil
+// Find two indices from two values from the given nums to add to target
+func (i TwoSumInput) FindTwoSum() ([]int, error) <span class="cov8" title="1">{
+        if len(i.Nums) &lt; 2 </span><span class="cov0" title="0">{
+                return nil, errors.New("Invalid count on nums")
         }</span>
-        <span class="cov8" title="1">lookup[num] = idx</span>
-    }
-    <span class="cov0" title="0">return nil, errors.New("Invalid Indices")</span>
-}
 
-func main() <span class="cov0" title="0">{
-    input := TwoSumInput{Nums: []int{1, 2, 3, 4}, Target: 7}
+        <span class="cov8" title="1">seen := make(map[int]int) // int to idx
 
-    resp, err := TwoSum(input)
-    if err != nil </span><span class="cov0" title="0">{
-        fmt.Println("Error:", err.Error())
-    }</span> else<span class="cov0" title="0"> {
-        fmt.Println("Response:", resp)
-    }</span>
+        for idx, num := range i.Nums </span><span class="cov8" title="1">{
+                complement := i.Target - num
 
+                if compIdx, found := seen[complement]; found </span><span class="cov8" title="1">{
+                        return []int{compIdx, idx}, nil
+                }</span>
+                <span class="cov8" title="1">seen[num] = idx</span>
+        }
+        <span class="cov0" title="0">return nil, errors.New("Invalid indices")</span>
 }
 </pre>
 		
