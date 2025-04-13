@@ -55,7 +55,7 @@
 			<div id="nav">
 				<select id="files">
 				
-				<option value="file0">github.com/joe-ton/solution/solution.go (77.8%)</option>
+				<option value="file0">github.com/joe-ton/solution/twosum.go (100.0%)</option>
 				
 				</select>
 			</div>
@@ -69,32 +69,43 @@
 		</div>
 		<div id="content">
 		
-		<pre class="file" id="file0" style="display: none">package solution
+		<pre class="file" id="file0" style="display: none">// twosum.go
+
+package solution
 
 import "errors"
 
+var (
+        ErrEmptyInput     = errors.New("Invalid Input")
+        ErrInvalidCount   = errors.New("Not enough count for nums")
+        ErrInvalidIndices = errors.New("Incorrect indices")
+)
+
 type TwoSumInput struct {
-        Nums   []int
-        Target int
+        Nums   *[]int
+        Target *int
 }
 
-// Find two indices from two values from the given nums to add to target
-func (i TwoSumInput) FindTwoSum() ([]int, error) <span class="cov8" title="1">{
-        if len(i.Nums) &lt; 2 </span><span class="cov0" title="0">{
-                return nil, errors.New("Invalid count on nums")
+// Find two indices from nums whose values equal to target
+func (i *TwoSumInput) Find() (indices []int, err error) <span class="cov8" title="1">{
+        if i.Nums == nil || i.Target == nil </span><span class="cov8" title="1">{
+                return nil, ErrEmptyInput
         }</span>
 
-        <span class="cov8" title="1">seen := make(map[int]int) // int to idx
+        <span class="cov8" title="1">if len(*i.Nums) &lt; 2 </span><span class="cov8" title="1">{
+                return nil, ErrInvalidCount
+        }</span>
 
-        for idx, num := range i.Nums </span><span class="cov8" title="1">{
-                complement := i.Target - num
+        <span class="cov8" title="1">intToIdx := make(map[int]int)
 
-                if compIdx, found := seen[complement]; found </span><span class="cov8" title="1">{
+        for idx, num := range *i.Nums </span><span class="cov8" title="1">{
+                complement := *i.Target - num
+                if compIdx, found := intToIdx[complement]; found </span><span class="cov8" title="1">{
                         return []int{compIdx, idx}, nil
                 }</span>
-                <span class="cov8" title="1">seen[num] = idx</span>
+                <span class="cov8" title="1">intToIdx[num] = idx</span>
         }
-        <span class="cov0" title="0">return nil, errors.New("Invalid indices")</span>
+        <span class="cov8" title="1">return nil, ErrInvalidIndices</span>
 }
 </pre>
 		

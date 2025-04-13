@@ -7,8 +7,10 @@ import (
 )
 
 func main() {
-	input := solution.TwoSumInput{Nums: []int{1, 2, 3, 4}, Target: 7}
-	resp, err := input.FindTwoSum()
+	nums := []int{1, 2, 3, 4}
+	target := 7
+	input := solution.TwoSumInput{Nums: &nums, Target: &target}
+	resp, err := input.Find()
 	if err != nil {
 		fmt.Println("Error:", err)
 	} else {
