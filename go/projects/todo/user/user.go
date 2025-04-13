@@ -16,6 +16,8 @@ type User struct {
 }
 
 func (u User) UserAsk() (*User, error) {
+    if 
+
 	reader := bufio.NewReader(os.Stdin)
 
 	fmt.Print("First Name: ")
