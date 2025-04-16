@@ -1,19 +1,5 @@
 package main
 
-import (
-	"fmt"
-
-	"github.com/joe-ton/solution"
-)
-
 func main() {
-	nums := []int{1, 2, 3, 4}
-	target := 7
-	input := solution.TwoSumInput{Nums: &nums, Target: &target}
-	resp, err := input.Find()
-	if err != nil {
-		fmt.Println("Error:", err)
-	} else {
-		fmt.Println("Response:", resp)
-	}
+
 }
