@@ -1,47 +1,49 @@
-# AI Stack Daily Practice
+# AI Infra & Observability Daily Practice
 
-Daily structured practice and projects across **C++, Rust, Go, Python, TypeScript, and Mojo**, designed to craft expertise in architecting end-to-end AI solutions—connecting hardware performance, secure infrastructure, sophisticated modeling, and intuitive user experiences.
+Daily, structured practice and projects across **Go, Python, and TypeScript**—forging expertise in architecting GPU‑accelerated, secure, and observable AI platforms that delight users **and** satisfy the business.
 
-## Why Master This AI Stack?
+---
+## Career Focus
 
-To become a solution architect capable of seamlessly bridging technology and business, each language is chosen to develop critical skills necessary for holistic AI architecture:
+> **Path:** AI Infrastructure Engineer -> Solutions Architect  
+> **Edge:** Deep GPU knowledge, cloud‑native skills, and end‑to‑end observability.
 
-| Language      | AI Pipeline Role                        | Core Skill                         |
-|---------------|-----------------------------------------|------------------------------------|
-| **C++**       | GPU Optimization, High-Performance Computing | Hardware Efficiency, Performance   |
-| **Rust**      | Edge AI, Secure and Robust Systems      | Memory Safety, Concurrency         |
-| **Go**        | DevOps, Secure Cloud Infrastructure     | Secure APIs, Distributed Systems   |
-| **Python**    | AI/ML Modeling, Rapid Innovation        | Model Prototyping, Fast Iteration  |
-| **TypeScript**| User-Centric Products, Frontend         | User Experience, Integration       |
-| **Mojo**      | Next-gen AI Acceleration, ML Infra      | High-Performance AI, Python Interop|
+---
+## Why Master This Stack?
 
-## Cybersecurity by Design
+| Language | Platform Role | Core Skill |
+|----------|---------------|------------|
+| **Go** | Cloud‑native microservices, Infrastructure‑as‑Code, Observability plumbing (OpenTelemetry + Grafana) | Concurrency, Reliability |
+| **Python** | AI/ML modeling & GPU acceleration (PyTorch, CUDA) | Rapid Prototyping, High‑Performance Workloads |
+| **TypeScript** | Web interfaces & developer tooling | UX, Seamless Integration |
 
-Embedding cybersecurity practices, especially leveraging **Go**, to ensure every architectural decision prioritizes secure, reliable, and scalable AI solutions:
+---
+## Observability & Reliability
+- **OpenTelemetry** for trace, metric, and log instrumentation.
+- **Grafana Labs Stack** (Loki, Tempo, Mimir, Grafana) for unified dashboards, alerting, and SLOs.
+- Continuous cost analysis of log/metric pipelines.
 
-- Secure Coding Patterns
-- Robust Microservices Architecture
-- Trusted Industry Infrastructure
+---
+## Cybersecurity by Design
+Secure coding patterns, zero‑trust cloud architecture, SBOM & supply‑chain scanning baked into CI/CD.
 
-## Daily Approach
-- **Short, Consistent Exercises:** Maintain momentum and continuous growth.
-- **End-to-End Perspective:** Integrating performance, security, modeling, and UX.
-- **Security First Mindset:** Incrementally reinforcing secure practices.
+---
+## Daily Approach
+- Bite‑sized exercises to maintain momentum.
+- Project sprints that tie GPU kernels to cloud services and frontend UX.
+- Post‑mortems & dashboards for every milestone.
 
-## Repository Structure
-```
+---
+## Repository Layout
+```text
 ai-daily-practice/
-├── cpp/
-├── rust/
 ├── go/
 ├── python/
 ├── typescript/
-└── mojo/
+
 ```
 
-Focused exercises, practical projects, and concise notes in each folder.
+---
+## Mission
+Deliver AI systems that are performant on GPUs, observable end‑to‑end, secure by default, and perfectly aligned with business outcomes.
 
-## My Mission
-As an AI Solution Architect, my goal is to deliver innovative solutions that strategically align technological excellence with business outcomes—crafting AI systems that are performant, secure, maintainable, and intuitively designed for exceptional user experiences.
-
-#2C5D8F
