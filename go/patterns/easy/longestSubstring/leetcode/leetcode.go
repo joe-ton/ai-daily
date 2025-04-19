@@ -1,12 +1,17 @@
 package leetcode
 
-func LongestSubstring(s string) bool {
-    lastSeen := make(map[int]int)
+type Substring struct {
+	Str string
+}
 
-    maxLen, start := 0, 0
+func (s Str) Find() bool {
+    // First, let's create the lastSeen map.  
+    // We need to 
+	lastSeen := make(map[rune]int)
 
-    for i, r := range []rune(s) {
-        if ok
-    }
-    
+	maxLen, start := 0, 0
+	for i, r := range []rune(s) {
+        if next
+	}
+
 }
