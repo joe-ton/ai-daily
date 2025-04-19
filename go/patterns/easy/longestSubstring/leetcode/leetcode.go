@@ -1,6 +1,12 @@
 package leetcode
 
-// Returns longest substring that don't repeat characters
-func longestSubstring(s string) bool {
-	lastSeen := make(map[rune]int) //
+func LongestSubstring(s string) bool {
+    lastSeen := make(map[int]int)
+
+    maxLen, start := 0, 0
+
+    for i, r := range []rune(s) {
+        if ok
+    }
+    
 }
