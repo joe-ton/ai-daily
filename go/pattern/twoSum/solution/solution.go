@@ -2,18 +2,23 @@ package solution
 
 import "errors"
 
+var (
+	ErrInvalidCount   = errors.New("Invalid count of nums")
+	ErrInvalidIndices = errors.New("Invalid indices of Find()")
+)
+
 type TwoSum struct {
 	Nums   []int
 	Target int
 }
 
-// Find two indices from nums whose values together to target
+// Find two indices whose values equal together to target
 func (t TwoSum) Find() (indices []int, err error) {
 	if len(t.Nums) < 2 {
-		return nil, errors.New("Invalid count of nums")
+		return nil, ErrInvalidCount
 	}
 
-	seen := make(map[int]int) // num to idx
+	seen := make(map[int]int) // lookup, int to idx
 
 	for idx, num := range t.Nums {
 		complement := t.Target - num
@@ -22,5 +27,5 @@ func (t TwoSum) Find() (indices []int, err error) {
 		}
 		seen[num] = idx
 	}
-	return nil, errors.New("Invalid indices")
+	return nil, ErrInvalidIndices
 }

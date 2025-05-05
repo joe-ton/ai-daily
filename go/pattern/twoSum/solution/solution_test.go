@@ -21,18 +21,31 @@ func TestTwoSum(t *testing.T) {
 			wantResp: []int{2, 3}, // indices
 			wantErr:  nil,
 		},
+		{
+			name:     "Test ErrInvalidCount",
+			nums:     []int{1},
+			target:   7,
+			wantResp: nil, // indices
+			wantErr:  ErrInvalidCount,
+		},
+		{
+			name:     "Test ErrInvalidIndices",
+			nums:     []int{1, 2, 3, 4},
+			target:   100,
+			wantResp: nil, // indices
+			wantErr:  ErrInvalidIndices,
+		},
 	}
-
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			twoSum := TwoSum{Nums: tt.nums, Target: tt.target}
+			twoSum := TwoSum{Target: tt.target, Nums: tt.nums}
 			gotResp, gotErr := twoSum.Find()
 
 			if !errors.Is(gotErr, tt.wantErr) {
 				t.Errorf("Got %v, want %v", gotErr, tt.wantErr)
 			}
 			if !reflect.DeepEqual(gotResp, tt.wantResp) {
-				t.Errorf("Got %v, want %v", gotResp, tt.wantErr)
+				t.Errorf("Got %v, want%v", gotResp, tt.wantResp)
 			}
 		})
 	}
