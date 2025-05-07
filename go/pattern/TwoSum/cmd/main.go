@@ -15,12 +15,4 @@ func main() {
 		context.Background(), os.Interrupt, syscall.SIGTERM)
 	defer done()
 
-	if err := run(ctx, logger); err != nil {
-		logger.Error("Run application failed", "run", err)
-	}
-}
-
-func run(ctx context.Context, logger *slog.Logger) (err error) {
-	<-ctx.Done()
-	return nil // everything is done
 }
