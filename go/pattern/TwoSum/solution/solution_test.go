@@ -15,7 +15,7 @@ func TestTwoSum(t *testing.T) {
 		wantErr  error
 	}{
 		{
-			name:     "Test Complete",
+			name:     "Test Normal",
 			nums:     []int{1, 2, 3, 4},
 			target:   7,
 			wantResp: []int{2, 3}, // indices
@@ -27,11 +27,12 @@ func TestTwoSum(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			twoSum := TwoSum{Nums: tt.nums, Target: tt.target}
 			gotResp, gotErr := twoSum.Find()
+
 			if !errors.Is(gotErr, tt.wantErr) {
 				t.Errorf("Got %v, Want %v", gotErr, tt.wantErr)
 			}
 			if !reflect.DeepEqual(gotResp, tt.wantResp) {
-				t.Errorf("Got %v, Want %v", gotResp, tt.wantErr)
+				t.Errorf("Got %v, Want %v", gotResp, tt.wantResp)
 			}
 		})
 	}
