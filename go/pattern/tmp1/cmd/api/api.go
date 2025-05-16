@@ -2,26 +2,29 @@ package api
 
 import (
 	"database/sql"
+	"log/slog"
+	"net/http"
 
 	"github.com/gorilla/mux"
 )
 
 type APIServer struct {
-	addr string  // port that server listens to
-	db   *sql.DB // connection pool
+	addr string       // port, server will listening
+	db   *sql.DB      // connection pool
+	log  *slog.Logger //
 }
 
-func NewAPIServer(addr string, db *sql.DB) *APIServer {
+func NewAPIServer(addr string, db *sql.DB, log *slog.Logger) *APIServer {
 	return &APIServer{
 		addr: addr,
 		db:   db,
+		log:  log,
 	}
 }
 
-// only returns error because it is long-running
 func (s *APIServer) Run() error {
 	router := mux.NewRouter()
 	subrouter := router.PathPrefix("/api/v1").Subrouter()
 
-	return http.ListenAndServer(s.addr, router)
+	return http.ListenAndServe(s.addr, nil)
 }
