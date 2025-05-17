@@ -9,8 +9,8 @@ import (
 )
 
 type APIServer struct {
-	addr string // port
-	db   *sql.DB
+	addr string  // port
+	db   *sql.DB // pool connection
 	log  *slog.Logger
 }
 
@@ -26,7 +26,7 @@ func (s *APIServer) Run() error {
 	router := mux.NewRouter()
 	subrouter := router.PathPrefix("/api/v1").Subrouter()
 
-	s.log.Info("Router setup", "router", subrouter)
+	s.log.Info("Router updated", "router", subrouter)
 
 	return http.ListenAndServe(s.addr, nil)
 }
