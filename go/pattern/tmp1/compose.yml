@@ -4,6 +4,14 @@ services:
   mysql:
     image: mysql:8.0
     container_name: mysql-local
-    environments:
-      DB_USER: 
+    environment:
+      DB_USER: ${DB_USER:-root}
+      DB_PASS: ${DB_PASS:-abcd}
+      DB_NAME: ${DB_NAME:-mysql-local}
+      DB_ADDR: ${DB_ADDR:-mysql-local:3306}
+  api:
+    build: .
+    env_file:
+      - .env.example
+      - .env
 
