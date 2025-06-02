@@ -4,15 +4,19 @@ function main() {
     var resp = run(nums, target);
     console.log(resp);
 }
-function (nums, target) {
+function run(nums, target) {
+    if (nums.length < 2) {
+        return [];
+    }
     var seen = new Map();
     for (var i = 0; i < nums.length; i++) {
-        var complement = target - nums[i];
+        var num = nums[i];
+        var complement = target - num;
         if (seen.has(complement)) {
             compIdx = seen[complement];
-            return [compIdx, idx];
+            return [compIdx, i];
         }
-        seen[nums[i]] = idx;
+        seen.set(num, i);
     }
     return [];
 }
