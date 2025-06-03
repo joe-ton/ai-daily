@@ -3,6 +3,7 @@ package api
 import (
 	"database/sql"
 	"log/slog"
+	"net/http"
 )
 
 type Server struct {
@@ -21,5 +22,9 @@ func NewServer(addr string, db *sql.DB, log *slog.Logger) *Server {
 
 // handler + router
 func (s *Server) Run() error {
+	router := http.NewServeMux()
 
+	router.HandleFunc("/login", s.loginHandler)
+
+	return nil
 }
