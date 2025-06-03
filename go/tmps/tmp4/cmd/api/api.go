@@ -7,7 +7,7 @@ import (
 )
 
 type Server struct {
-	addr string // port for server to listen to
+	addr string // port
 	db   *sql.DB
 	log  *slog.Logger
 }
@@ -20,11 +20,11 @@ func NewServer(addr string, db *sql.DB, log *slog.Logger) *Server {
 	}
 }
 
-// handler + router
 func (s *Server) Run() error {
 	router := http.NewServeMux()
 
 	router.HandleFunc("/login", s.handleLogin)
+	router.HandleFunc("/health", s.handleHealth)
 
 	srv := &http.Server{
 		Addr:    s.addr,
@@ -35,4 +35,6 @@ func (s *Server) Run() error {
 }
 
 func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
+}
+func (s *Server) handleHealth(w http.ResponseWriter, r *http.Request) {
 }
