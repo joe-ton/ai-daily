@@ -7,8 +7,6 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
-
-	"github.com/joe-ton/solution"
 )
 
 func main() {
@@ -25,14 +23,7 @@ func run(ctx context.Context) error {
 	defer cancel()
 
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
-
-	nums := []int{1, 2, 3, 3}
-	result, err := solution.Is_duplicate(nums)
-	if err != nil {
-		logger.Error("Application run error", "run", err)
-		os.Exit(1)
-	}
-	logger.Info("Application run result", "run", result)
+	slog.SetDefault(logger)
 
 	<-ctx.Done()
 	return nil
