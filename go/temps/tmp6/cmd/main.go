@@ -7,6 +7,8 @@ import (
 	"os"
 	"os/signal"
 	"syscall"
+
+	"github.com/joe-ton/solution"
 )
 
 func main() {
@@ -24,6 +26,12 @@ func run(ctx context.Context) error {
 
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 	slog.SetDefault(logger)
+
+	s := "iceman"
+	t := "iceman"
+
+	result := solution.Is_Anagram(s, t)
+	logger.Info("Application run result", "run", result)
 
 	<-ctx.Done()
 	return nil
