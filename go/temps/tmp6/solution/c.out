@@ -1,9 +1,0 @@
-mode: set
-github.com/joe-ton/solution/solution.go:5.35,6.22 1 1
-github.com/joe-ton/solution/solution.go:6.22,8.3 1 1
-github.com/joe-ton/solution/solution.go:10.2,12.21 2 1
-github.com/joe-ton/solution/solution.go:12.21,15.3 2 1
-github.com/joe-ton/solution/solution.go:17.2,17.24 1 1
-github.com/joe-ton/solution/solution.go:17.24,19.16 2 1
-github.com/joe-ton/solution/solution.go:19.16,21.4 1 1
-github.com/joe-ton/solution/solution.go:23.2,23.13 1 1
