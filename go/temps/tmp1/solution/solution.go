@@ -10,7 +10,7 @@ type TwoSum struct {
 // Find two indices whose values are equal to given target
 func (t TwoSum) Find() ([]int, error) {
 	if len(t.Nums) < 2 {
-		return nil, errors.New("Invalid indices")
+		return nil, errors.New("Not enough values in Nums")
 	}
 
 	seen := make(map[int]int)
@@ -22,6 +22,5 @@ func (t TwoSum) Find() ([]int, error) {
 		}
 		seen[num] = idx
 	}
-
 	return nil, errors.New("Invalid indices")
 }

@@ -1,7 +1,6 @@
-
-# building stage
+# build stage
 FROM golang:1.24-alpine AS builder
-WORKDIR /cmd
+WORKDIR /app
 
 COPY go.mod .
 RUN go mod download
@@ -11,6 +10,7 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o app ./cmd
 
 # runtime stage
 FROM alpine:latest
-WORKDIR /app
-COPY --from=builder /cmd/app .
+WORKDIR /
+COPY --from=builder /app .
 ENTRYPOINT ["./app"]
+
