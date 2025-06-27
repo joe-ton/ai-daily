@@ -5,7 +5,7 @@ fn main() {
     let target = 7;
     let result = run(&nums, target); 
 
-    println!("Hello, {:?}!", result);
+    println!("Result: {:?}", result);
 }
 
 fn run(nums: &[i32], target: i32) -> Vec<usize> {
@@ -24,5 +24,20 @@ fn run(nums: &[i32], target: i32) -> Vec<usize> {
         seen.insert(num, idx);
     }
     vec![]
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*; // does this bring in all the source file
+                  //
+    
+    #[test]
+    fn test_two_sum() {
+        let nums = vec![1, 2, 3, 4];
+        let target = 7;
+        let result = run(&nums, target);
+
+        assert_eq!(result, vec![2, 3]);
+    }
 }
 
