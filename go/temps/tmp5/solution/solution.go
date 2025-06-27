@@ -7,14 +7,14 @@ type Greeter interface {
 }
 
 type Person struct {
-	PersonName string
+	Name string
 }
 
-var _ Greeter = (*Person)(nil)
+// var _ Greeter = (*Person)(nil)
 
 func (p *Person) Greet(phrase string) (string, error) {
 	if phrase == "" {
 		return "", errors.New("no phrase")
 	}
-	return phrase + " " + p.PersonName, nil
+	return phrase + " " + p.Name, nil
 }

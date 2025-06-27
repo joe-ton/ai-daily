@@ -27,11 +27,15 @@ func run(ctx context.Context) error {
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 	slog.SetDefault(logger)
 
-	g := &solution.Person{PersonName: "Joe"}
+	var g solution.Greeter
+
+	g = &solution.Person{Name: "Joe"}
+
 	msg, err := g.Greet("Hello,")
 	if err != nil {
 		return err
 	}
+
 	slog.InfoContext(ctx, "greeting succeeded", "msg", msg)
 
 	return nil
