@@ -11,14 +11,14 @@ func TestTwoSum(t *testing.T) {
 		name    string
 		nums    []int
 		target  int
-		want    []int
+		want    []int // indices
 		wantErr error
 	}{
 		{
-			name:    "Test Complete",
+			name:    "Test Name",
 			nums:    []int{1, 2, 3, 4},
 			target:  7,
-			want:    []int{2, 3},
+			want:    []int{2, 3}, // indices
 			wantErr: nil,
 		},
 	}
@@ -31,7 +31,7 @@ func TestTwoSum(t *testing.T) {
 				t.Errorf("Got %v, Want %v", err, tt.wantErr)
 			}
 			if !reflect.DeepEqual(got, tt.want) {
-				t.Errorf("Got %v, Want %v", got, tt.want)
+				t.Errorf("Got %v, Want %v", err, tt.wantErr)
 			}
 		})
 	}

@@ -7,7 +7,8 @@ type TwoSum struct {
 	Target int
 }
 
-func (t TwoSum) Find() ([]int, error) {
+// Find two indices whose values are equal to target
+func (t TwoSum) Run() ([]int, error) {
 	if len(t.Nums) < 2 {
 		return nil, errors.New("Invalid count")
 	}
@@ -19,8 +20,9 @@ func (t TwoSum) Find() ([]int, error) {
 		if compIdx, found := seen[complement]; found {
 			return []int{compIdx, idx}, nil
 		}
+
 		seen[num] = idx
 	}
 
-	return nil, errors.New("Invalid result")
+	return nil, errors.New("Invalid indices")
 }
