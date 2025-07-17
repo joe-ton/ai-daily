@@ -1,3 +1,0 @@
-#include <iostream>
-
-// preprocessor directive
