@@ -8,7 +8,7 @@ std::array<int, 2> getResponse(int target, const std::array<int, 4>& nums) {
     for (int i = 0; i < nums.size(); ++i) {
         int complement = target - nums[i];
 
-        if (prev.find(complement) != prev.end()) {
+        if (prev.count(complement)) {
             return {prev[complement], i};
         }
 
@@ -28,5 +28,4 @@ int main() {
     for (const auto& idx : result) {
         std::cout << idx << " ";
     }
-
 }
