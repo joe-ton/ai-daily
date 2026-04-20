@@ -26,5 +26,11 @@ int main() {
 
   vector<int> response = twoSum(nums, target);
 
-  std::cout << "Response: " << response << std::endl;
+  std::cout << "Response: ";
+  for (const auto &idx : response) {
+    std::cout << idx << " ";
+  }
+  std::cout << std::endl;
+
+  return 0;
 }
