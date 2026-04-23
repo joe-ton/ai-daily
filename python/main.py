@@ -1,12 +1,15 @@
-def sliding_window(s: string) -> int:
-    char_set = set()
-    left = 0
-    max_length = 0
+def two_sum(nums: list[int], target: int) -> list[int]:
+    left, right = 0, len(nums) - 1
 
-    for right in range(len(s)):
-        while s[right] in char_set:
+    while left < right:
+        sum: int = nums[left] + nums[right]
 
-
+        if sum == target:
+            return [left + 1, right + 1]
+        elif sum < target:
+            left += 1
+        else:
+            right -= 1
 
 
 def main():

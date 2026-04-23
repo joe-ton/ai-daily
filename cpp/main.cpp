@@ -3,7 +3,7 @@
 
 using std::vector;
 
-vector<int> twoSum(vector<int> nums, int target) {
+std::vector<int> twoPointers(std::vector<int> nums, int target) {
   int left = 0, right = nums.size() - 1;
 
   while (left < right) {
@@ -24,13 +24,11 @@ int main() {
   vector<int> nums = {1, 2, 3, 4};
   int target = 7;
 
-  vector<int> response = twoSum(nums, target);
+  std::vector<int> response = twoPointers(nums, target);
 
   std::cout << "Response: ";
   for (const auto &idx : response) {
     std::cout << idx << " ";
   }
   std::cout << std::endl;
-
-  return 0;
 }
