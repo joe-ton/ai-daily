@@ -10,10 +10,10 @@ vector<int> twoSum(vector<int> nums, int target) {
   for (const auto &idx : nums) {
     int complement = target - nums[idx];
 
-    if (prev.find(complement) != prev.end()) {
+        if (prev.find(complement) != prev.end() {
       return {prev[complement], idx};
-    }
-    prev[nums[idx]] = idx;
+        }
+        prev[complement] = idx;
   }
   return {};
 }
