@@ -1,34 +1,35 @@
 #include <iostream>
-#include <unordered_map>
 #include <vector>
 
+using std::vector;
+
+vector<int> two_pointers(vector<int> nums, int target) {
+  int left = 0, right = nums.size() - 1;
+
+  while (left < right) {
+    long long sum = (long long)nums[left] + nums[right];
+
+    if (sum == target) {
+      return {left + 1, right + 1};
+    } else if (sum < target) {
+      left++;
+    } else {
+      right--;
+    }
+  }
+
+  return {};
+}
+
 int main() {
-  const int N = 10000;
+  vector<int> nums = {1, 2, 3, 4};
+  int target = 7;
 
-  // === std::vector<int> ===
-  std::vector<int> vec;
-  vec.reserve(N);
-  for (int i = 0; i < N; i++) {
-    vec.push_back(i);
+  vector<int> response = two_pointers(nums, target);
+
+  std::cout << "Response: ";
+  for (const auto &idx : response) {
+    std::cout << idx << " ";
   }
-  size_t vec_bytes = vec.capacity() * sizeof(int);
-  std::cout << "std::vector<int> with " << N << " elements: ~"
-            << vec_bytes / 1024.0 << " KB" << std::endl;
-
-  // === std::unordered_map<int, int> ===
-  std::unordered_map<int, int> umap;
-  umap.reserve(N); // Helps reduce rehashing
-  for (int i = 0; i < N; i++) {
-    umap[i] = i;
-  }
-
-  // Rough estimate (real usage is higher)
-  size_t map_bytes = umap.bucket_count() * (sizeof(void *) + sizeof(int) * 2);
-  std::cout << "std::unordered_map<int,int> with " << N << " entries: ~"
-            << map_bytes / 1024.0 << " KB (this is an underestimate)"
-            << std::endl;
-
-  std::cout << "\nReal-world result: unordered_map uses roughly 4x more memory "
-               "than vector.\n";
-  return 0;
+  std::cout << std::endl;
 }
